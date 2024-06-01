@@ -138,7 +138,13 @@ background: linear-gradient(180deg, rgba(5,60,4,0.8813900560224089) 1%, rgba(39,
     }
 }
 
-@media screen and (max-width: 600px) {
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
     body{
         height: 100vh;
         display: flex;

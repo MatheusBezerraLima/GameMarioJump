@@ -6,7 +6,10 @@ const lua = document.querySelector('.lua')
 const sol = document.querySelector('.sol')
 const fundo = document.querySelector('.container') 
 var Teste = 0
-
+var tamanhoMario = mario.width
+const tamMario = tamanhoMario /2.5;
+console.log(tamMario);
+ 
 const Pular = () =>{
     mario.classList.add('jump');
 
@@ -25,9 +28,24 @@ const loop = setInterval(() =>{
     const positionSol =  sol.offsetLeft
     const positionLua =  lua.offsetLeft
     const backFundo = window.getComputedStyle(fundo).background
+    console.log(pipe.width);
 
+    const calcLeft = () => {
+        if(pipe.width == 40){
+            const Tam = 70;
+            return Tam;
+        }else{
+            const Tam = 120;
+            return Tam;
+         } 
+    }
 
-    if(pipePosition <= 120 && marioPosition < 100 && pipePosition > 0){
+    var leftPipe = calcLeft()
+    
+   
+    
+
+    if(pipePosition <= leftPipe && marioPosition < 100 && pipePosition > 0){
 
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`
@@ -35,8 +53,8 @@ const loop = setInterval(() =>{
         mario.style.animation = 'none';
         mario.style.bottom = `${marioPosition}px`
         mario.src = 'img/game-over.png'
-        mario.style.width = '60px'
-        mario.style.left = '50px'
+        mario.style.width = `${tamMario}px`
+        mario.style.left = '40px'
         
         nuvem.style.animation = 'none'
         nuvem.style.left  = `${positionClouds}px`
